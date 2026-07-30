@@ -1,5 +1,6 @@
 import cv2
 import requests
+from datetime import datetime
 
 # Webcam URL
 URL = "https://live.neos360.com/luchon/fixes/img/upload/plateau_cremaillere/plateau_cremaillere.mp4"
@@ -21,8 +22,15 @@ success, frame = video.read()
 if not success:
     raise Exception("Couldn't read first frame")
 
-cv2.imwrite("LATEST.jpg", frame)
+# Create today's filename
+today = datetime.now().strftime("%Y%m%d")
+archive_filename = f"{today}.jpg"
+
+# Save both versions
+cv2.imwrite("latest.jpg", frame)
+cv2.imwrite(archive_filename, frame)
 
 video.release()
 
-print("LATEST.jpg created successfully!")
+print("latest.jpg created successfully!")
+print(f"{archive_filename} created successfully!")
