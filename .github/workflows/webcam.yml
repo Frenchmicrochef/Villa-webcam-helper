@@ -22,3 +22,9 @@ jobs:
 
       - name: Run helper
         run: python capture.py
+
+      - name: Upload latest image
+        uses: actions/upload-artifact@v4
+        with:
+          name: latest-webcam
+          path: LATEST.jpg
