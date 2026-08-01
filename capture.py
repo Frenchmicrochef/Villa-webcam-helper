@@ -2,6 +2,10 @@ import cv2
 import requests
 from datetime import datetime
 
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
+
 print("--------------------------------")
 print(datetime.now())
 print("Villa Webcam Helper")
@@ -39,3 +43,17 @@ video.release()
 
 print("latest.jpg created successfully!")
 print(f"{archive_filename} created successfully!")
+
+print("--------------------------------")
+print("Connecting to Google Drive...")
+
+SCOPES = ["https://www.googleapis.com/auth/drive"]
+
+credentials = service_account.Credentials.from_service_account_file(
+    "credentials.json",
+    scopes=SCOPES
+)
+
+drive = build("drive", "v3", credentials=credentials)
+
+print("Connected successfully!")
