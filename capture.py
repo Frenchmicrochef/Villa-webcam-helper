@@ -2,6 +2,11 @@ import cv2
 import requests
 from datetime import datetime
 
+print("--------------------------------")
+print(datetime.now())
+print("Villa Webcam Helper")
+print("--------------------------------")
+
 # Webcam URL
 URL = "https://live.neos360.com/luchon/fixes/img/upload/plateau_cremaillere/plateau_cremaillere.mp4"
 
