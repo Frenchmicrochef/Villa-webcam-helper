@@ -71,9 +71,9 @@ print(f"Found {len(files)} matching files.")
 
 # Delete existing LATEST.jpg
 
-if files:
-    drive.files().delete(fileId=files[0]["id"]).execute()
-    print("Old LATEST.jpg deleted.")
+#if files:
+    #drive.files().delete(fileId=files[0]["id"]).execute()
+    #print("Old LATEST.jpg deleted.")
 
 # Upload new latest.jpg
 
