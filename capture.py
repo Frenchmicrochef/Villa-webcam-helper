@@ -84,3 +84,20 @@ drive.files().update(
 ).execute()
 
 print("LATEST.jpg updated successfully!")
+
+archive_metadata = {
+    "name": archive_filename,
+    "parents": [ARCHIVE_FOLDER]
+}
+
+archive_media = MediaFileUpload(
+    archive_filename,
+    mimetype="image/jpeg"
+)
+
+drive.files().create(
+    body=archive_metadata,
+    media_body=archive_media
+).execute()
+
+print(f"{archive_filename} archived successfully!")
