@@ -8,7 +8,7 @@ print("Villa Webcam Helper")
 print("--------------------------------")
 
 # Webcam URL
-URL = "https://live.neos360.com/luchon/fixes/img/upload/plateau_cremaillere/plateau_cremaillere.mp4"
+URL = "https://live.neos360.com/luchon/fixes/img/upload/plateau_cabane/plateau_cabane.mp4"
 
 print("Downloading webcam...")
 
