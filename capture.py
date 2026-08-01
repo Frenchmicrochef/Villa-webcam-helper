@@ -69,29 +69,16 @@ files = results.get("files", [])
 
 print(f"Found {len(files)} matching files.")
 
-# Delete existing LATEST.jpg
-
-#if files:
-    #drive.files().delete(fileId=files[0]["id"]).execute()
-    #print("Old LATEST.jpg deleted.")
-
-# Upload new latest.jpg
-
-file_metadata = {
-    "name": "LATEST.jpg",
-    "parents": [LATEST_FOLDER]
-}
+file_id = files[0]["id"]
 
 media = MediaFileUpload(
     "latest.jpg",
     mimetype="image/jpeg"
 )
 
-new_file = drive.files().create(
-    body=file_metadata,
-    media_body=media,
-    fields="id"
+drive.files().update(
+    fileId=file_id,
+    media_body=media
 ).execute()
 
-print("New LATEST.jpg uploaded!")
-print(f"File ID: {new_file['id']}")
+print("LATEST.jpg updated successfully!")
