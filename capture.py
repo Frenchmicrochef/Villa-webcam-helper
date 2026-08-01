@@ -57,3 +57,14 @@ credentials = service_account.Credentials.from_service_account_file(
 drive = build("drive", "v3", credentials=credentials)
 
 print("Connected successfully!")
+
+LATEST_FOLDER = "1Sydc4u15d_cMAPebFpcTI_rRkw1IGgXX"
+
+results = drive.files().list(
+    q=f"name='LATEST.jpg' and '{LATEST_FOLDER}' in parents",
+    fields="files(id,name)"
+).execute()
+
+files = results.get("files", [])
+
+print(f"Found {len(files)} matching files.")
