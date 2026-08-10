@@ -3,7 +3,10 @@ name: Villa Webcam Helper
 on:
   workflow_dispatch:
   schedule:
-  - cron: "0,15,30,45 5-7 * * *"
+    - cron: "0,15,30,45 5-7 * * *"
+
+permissions:
+  contents: write
 
 jobs:
   capture:
