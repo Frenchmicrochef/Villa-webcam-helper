@@ -29,6 +29,3 @@ jobs:
 
       - name: Run helper
         run: python capture.py        
-
-      - name: latest-webcam
-        path: latest.jpg
