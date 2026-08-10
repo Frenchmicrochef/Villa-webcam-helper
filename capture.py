@@ -60,7 +60,7 @@ print("Connected successfully!")
 
 LATEST_FOLDER = "1Sydc4u15d_cMAPebFpcTI_rRkw1IGgXX"
 
-ARCHIVE_FOLDER = "1U1L9KMpfwf-r8AhonyLuLnvJ8o147JUK"
+ARCHIVE_FOLDER = "1-bSLetTMdkuxQzo-zK65aHtqoJd49Sb2"
 
 results = drive.files().list(
     q=f"name='LATEST.jpg' and '{LATEST_FOLDER}' in parents",
