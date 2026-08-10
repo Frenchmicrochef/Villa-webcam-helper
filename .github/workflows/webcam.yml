@@ -3,8 +3,9 @@ name: Villa Webcam Helper
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0,15,30,45 5-7 * * *"
-
+  - cron: "55 5 * * *"
+  - cron: "55 17 * * *"
+  
 permissions:
   contents: write
 
@@ -29,8 +30,5 @@ jobs:
       - name: Run helper
         run: python capture.py        
 
-      - name: Upload latest image
-        uses: actions/upload-artifact@v4
-        with:
-          name: latest-webcam
-          path: latest.jpg
+      - name: latest-webcam
+        path: latest.jpg
