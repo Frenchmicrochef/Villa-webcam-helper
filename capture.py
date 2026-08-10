@@ -7,7 +7,7 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 
 print("--------------------------------")
-print(datetime.now())
+print(f"Capture time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 print("Villa Webcam Helper")
 print("--------------------------------")
 
