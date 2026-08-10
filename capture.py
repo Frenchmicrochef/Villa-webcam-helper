@@ -32,7 +32,7 @@ if not success:
     raise Exception("Couldn't read first frame")
 
 # Create today's filename
-timestamp = datetime.now().strftime("%Y%m%d_%H%M")
+timestamp = datetime.now().strftime("%Y-%m-%d_%H%M")
 archive_filename = f"{timestamp}.jpg"
 
 # Save both versions
