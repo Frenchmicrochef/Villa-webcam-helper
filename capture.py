@@ -1,5 +1,7 @@
 import cv2
 import requests
+import os
+import shutil
 from datetime import datetime
 
 from google.oauth2 import service_account
@@ -38,6 +40,11 @@ archive_filename = f"{timestamp}.jpg"
 # Save both versions
 cv2.imwrite("latest.jpg", frame)
 cv2.imwrite(archive_filename, frame)
+
+archive_path = os.path.join("archive", archive_filename)
+shutil.copy(archive_filename, archive_path)
+
+print(f"Copied to {archive_path}")
 
 video.release()
 
@@ -84,6 +91,24 @@ drive.files().update(
 ).execute()
 
 print("LATEST.jpg updated successfully!")
+
+import subprocess
+
+subprocess.run(["git", "config", "user.name", "Villa Webcam Helper"])
+subprocess.run(["git", "config", "user.email", "actions@github.com"])
+
+subprocess.run(["git", "add", "archive"])
+
+subprocess.run([
+    "git",
+    "commit",
+    "-m",
+    f"Archive webcam {archive_filename}"
+])
+
+subprocess.run(["git", "push"])
+
+print("Archive committed to GitHub!")
 
 #archive_metadata = {
     #"name": archive_filename,
